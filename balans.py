@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ============================================
 
 # Вкажіть шлях до вашого CSV файлу
-file_path = "metrological_data.csv"
+file_path = "data/raw/metrological_data.csv"
 
 df = pd.read_csv(file_path)
 
@@ -45,7 +45,7 @@ plt.figure(figsize=(14, 6))
 plt.plot(
     df["timestamp"],
     df["balance_error"],
-    label="Балансова нев'язка εB(t)"
+    label="Різниця балансів εB(t)"
 )
 
 plt.axhline(
@@ -59,7 +59,7 @@ plt.axhline(
     linestyle="--"
 )
 
-plt.title("Аналіз балансової нев'язки вузла обліку газу")
+plt.title("Аналіз сталості балансу вузла обліку газу")
 plt.xlabel("Час")
 plt.ylabel("εB(t)")
 plt.legend()
@@ -68,7 +68,9 @@ plt.grid(True)
 plt.tight_layout()
 
 # Збереження
-plt.savefig("balance_error.png", dpi=300)
+import os
+os.makedirs('data/plots', exist_ok=True)
+plt.savefig("data/plots/balance_error.png", dpi=300)
 
 # Показ
 plt.show()

@@ -3,7 +3,10 @@ import pandas as pd
 import numpy as np
 
 # ==================== ЗАВАНТАЖЕННЯ ДАНИХ З CSV ====================
-df = pd.read_csv('rec_date.csv')
+import os
+os.makedirs('data/raw', exist_ok=True)
+os.makedirs('data/plots', exist_ok=True)
+df = pd.read_csv('data/raw/rec_date.csv')
 
 time = df['time']
 black = df['black']
@@ -17,7 +20,7 @@ plt.figure(figsize=(16, 9))
 plt.plot(time, black, 'k-', linewidth=2.7, label='Чорна лінія')
 plt.plot(time, gray, color='#555555', linewidth=2.3, label='Сіра лінія')
 
-plt.title('Витрата води (м³/год) — максимальна деталізація', fontsize=14, pad=20)
+plt.title('Витрата природного газу (м³/год) ', fontsize=14, pad=20)
 plt.xlabel('Час, с', fontsize=12)
 plt.ylabel('Витрата, м³/год', fontsize=12)
 
@@ -33,4 +36,5 @@ plt.xticks(np.arange(15, 290, 15))
 plt.yticks(np.arange(2060, 2135, 10))
 
 plt.tight_layout()
+plt.savefig('data/plots/reconstruction_preview.png', dpi=300)
 plt.show()

@@ -3,7 +3,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
 
 # Завантаження
-df = pd.read_csv("metrological_data.csv")
+#f = pd.read_csv("metrological_data.csv")
+df = pd.read_csv("data/results/model_comparison.csv")
+
 
 # Метрики
 metrics = df.groupby("model").apply(lambda x: pd.Series({

@@ -1,10 +1,11 @@
 import csv
 import numpy as np
+import os
 from datetime import datetime, timedelta
 
 # =====================================================
 # PHYSICS-INFORMED SYNTHETIC DATASET GENERATOR
-# Для статті з контролю якості обліку природного газу
+# генерація гібридного датасету  з реальними даними та фізично осмисленими аномаліями для задачі обліку якості газового вузла
 # =====================================================
 
 np.random.seed(42)
@@ -177,5 +178,6 @@ def save_csv(rows, filename):
 
 if __name__ == "__main__":
     data = generate_physics_informed_data(days=14)
-    save_csv(data, "metrological_data.csv")
+    os.makedirs("data/raw", exist_ok=True)
+    save_csv(data, "data/raw/metrological_data.csv")
     print("Dataset generated.")
