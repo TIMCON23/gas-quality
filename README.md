@@ -240,6 +240,20 @@ scientific publications;
 IEEE papers;
 conference presentations;
 Scopus-indexed journals.
+
+## Language Support
+
+The SCADA operator interface supports language selection at runtime.
+
+Supported languages:
+- English
+- German (Deutsch)
+- Spanish (Español)
+- Polish (Polski)
+- Ukrainian (Українська)
+
+Use the language selector in the GUI control panel to switch the operator interface language.
+
 Output Structure
 
 After execution the system automatically creates:
